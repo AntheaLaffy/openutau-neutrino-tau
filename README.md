@@ -1,44 +1,46 @@
 # Neutrino Tau for TuneLab
 
+> 其他语言版本：[日本語](README_ja.md)
+
 > [!WARNING]
-> ボカコレに間に合わせるために突貫工事で作ったものなのでだいぶ雑だし動くことは保証できません。あくまで参考程度にしてください。
+> 本项目是为了赶上 ボカコレ 截止日期而仓促完成的，代码较为粗糙，无法保证正常运行。仅供参考。
 
-Neutrino Tau for TuneLab は [TuneLab](https://github.com/LiuYunPlayer/TuneLab) で Neutrino を使用するためのプラグインです。
+Neutrino Tau for TuneLab 是一个用于在 [TuneLab](https://github.com/LiuYunPlayer/TuneLab) 中使用 Neutrino 的插件。
 
-## インストール
+## 安装
 
-1. [Neutrino](https://studio-neutrino.com/) （**調声支援ツール同梱版**）の最新版をダウンロードしてインストールします。
-2. [TuneLab](https://github.com/LiuYunPlayer/TuneLab) の最新版をダウンロードしてインストールします。
-3. [Releases](https://github.com/sevenc-nanashi/tunelab-neutrino-tau/releases) から最新の `tunelab-neutrino-tau-x.x.x.tlx` をダウンロードします。
-4. `Extensions`から`Install/Update...`からダウンロードした `.tlx` ファイルを選択してインストールします。
+1. 下载并安装 [Neutrino](https://studio-neutrino.com/)（**含调声辅助工具版本**）的最新版本。
+2. 下载并安装 [TuneLab](https://github.com/LiuYunPlayer/TuneLab) 的最新版本。
+3. 从 [Releases](https://github.com/sevenc-nanashi/tunelab-neutrino-tau/releases) 下载最新的 `tunelab-neutrino-tau-x.x.x.tlx`。
+4. 在 `Extensions` 中选择 `Install/Update...`，然后选择下载的 `.tlx` 文件进行安装。
 
-## パートのプロパティ
+## 部分属性
 
 ### `styleShift`
 
-- 型: number (integer)
-- 既定値: `0`
-- 範囲: `-24` 〜 `24` (半音)
-- 小数で指定された場合は四捨五入されます。
+- 类型: number（整数）
+- 默认值: `0`
+- 范围: `-24` ～ `24`（半音）
+- 若指定为小数，将四舍五入处理。
 
-`styleShift` は内部の推論時にノートを半音単位でシフトして音色傾向を変えるためのパラメータです。  
-ピッチ推論に適用され、最終波形合成の基準キーにも反映されます。
+`styleShift` 是在内部推理时以半音为单位移动音符、改变音色倾向的参数。  
+该参数应用于音调推理，同时也反映在最终波形合成的基准调上。
 
 ### `waveformStyleShift`
 
-- 型: number (integer)
-- 既定値: `0`
-- 範囲: `-24` 〜 `24` (半音)
-- 小数で指定された場合は四捨五入されます。
+- 类型: number（整数）
+- 默认值: `0`
+- 范围: `-24` ～ `24`（半音）
+- 若指定为小数，将四舍五入处理。
 
-`waveformStyleShift` は最終波形合成にのみ追加で適用される半音シフトです。  
-`styleShift` に重ねて波形段でだけシフト量を調整できます。
+`waveformStyleShift` 是仅在最终波形合成阶段额外应用的半音偏移。  
+可在 `styleShift` 的基础上，单独在波形阶段进一步调整偏移量。
 
 ### `pitchShiftCents`
 
-- 型: number
-- 既定値: `0`
-- 範囲: `-2400` 〜 `2400` (cent)
+- 类型: number
+- 默认值: `0`
+- 范围: `-2400` ～ `2400`（音分）
 
-`pitchShiftCents` は最終的な F0 にセント単位で適用されるピッチシフトです。  
-`styleShift` / `waveformStyleShift` とは独立して、微細なキー調整に使えます。
+`pitchShiftCents` 是以音分（cent）为单位应用于最终 F0 的音调偏移。  
+与 `styleShift` / `waveformStyleShift` 相互独立，可用于更精细的音调微调。
